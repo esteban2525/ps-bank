@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('transfers', function (Blueprint $table) {
             $table->integer('id',10);
-            $table->datetime('movement_date');
-            $table->string('transfer_type',10);
-            $table->integer('origin_id')->references('id')->on('accounts');
-            $table->integer('destination_id')->references('id')->on('accounts');
+            $table->string('type',10);
+            $table->float('value',20);
+            $table->integer('account_origin_id')->references('id')->on('accounts');
+            $table->integer('account_destination_id')->references('id')->on('accounts');
             $table->timestamps();
         });
     }
